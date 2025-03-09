@@ -1,6 +1,29 @@
-let arr = [1,2,3,4,5,6];
-let count = 0;
+let input = prompt("Nhập chuỗi số: ");
 
-for(let i=0;i<arr.length;i++){
-    
+input = input.split(" ");
+
+let check = 0;
+for (let i = 0; i < input.length; i++) {
+    if (!Number.isInteger(+input[i])) {
+        check = 1;
+        break;
+    }
+}
+
+if (check === 0) {
+    let max = +input[0];
+    let index = 0;
+
+    for (let i = 0; i < input.length; i++) {
+        if (+input[i] > max) {
+            max = input[i];
+            index = i;
+        }
+    }
+
+    console.log(`max: ${max} - index: ${index}`);
+
+
+} else {
+    alert(`Chuỗi không hợp lệ!`);
 }
